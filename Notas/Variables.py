@@ -57,4 +57,5 @@ print(f"The sum value is: {sum}")
 def add(num1):
     return num1 + 2
 
+# The letter 'f' is used before a text string to format it and be able to include variables
 print(f"The 'add' funtion result is: {add(num1)}")

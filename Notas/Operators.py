@@ -28,29 +28,29 @@ mod = num1 % num2
 print(f"{num1} % {num2} = {mod}")
 
 # Comparation operators
-# Greatest than
-greatest_than = num1 > num2
-print(f"is number 1 greatest than number 2?: {greatest_than}")
+# Greater than
+greater_than = num1 > num2
+print(f"is number 1 greatest than number 2?: {greater_than}")
 
-# Lessest equal
-greatest_equal = num1 >= num2
-print(f"is number 1 greatest or equal than number 2?: {greatest_equal}")
+# greater equal
+greater_equal = num1 >= num2
+print(f"is number 1 greatest or equal than number 2?: {greater_equal}")
 
-# Lessest than
-less_than = num1 < num2
-print(f"is number 1 lessest than number 2?: {less_than}")
+# Smaller than
+smaller_than = num1 < num2
+print(f"is number 1 lessest than number 2?: {smaller_than}")
 
-# Lessest equal
-lessest_equal = num1 <= num2
-print(f"is number 1 lessest or equal than number 2?: {lessest_equal}")
+# Smaller equal
+smaller_equal = num1 <= num2
+print(f"is number 1 lessest or equal than number 2?: {smaller_equal}")
 
 # Equal
 equal_than = num1 == num2
 print(f"is number 1 equals than number 2?: {equal_than}")
 
 # Diferent
-diferent_than = num1 != num2
-print(f"is number 1 diferent than number 2?: {diferent_than}")
+not_equal = num1 != num2
+print(f"is number 1 diferent than number 2?: {not_equal}")
 
 
 # Logic Operators
