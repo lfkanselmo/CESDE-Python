@@ -70,3 +70,7 @@ class User:
         for i in self.users:
             print(i)
             print("\n")
+
+
+    def save_user(self,user_new):
+        User.users.append(user_new)

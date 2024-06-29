@@ -87,4 +87,4 @@ class Employee(User):
         self._salary = float(input("Insert employee raw salary: "))
 
         employee = {"id": employee["id"], "name": employee["name"], "last_name": employee["last_name"],"email": employee["email"], "password": employee["password"], "rol":self._rol, "salary": self._salary}
-        User.users.append(employee)
+        self.save_user(employee)
