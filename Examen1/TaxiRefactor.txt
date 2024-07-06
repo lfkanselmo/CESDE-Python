@@ -1,0 +1,54 @@
+class Driver:
+    def __init__(self, name):
+        self.name = name
+        self.total_earnings = 0
+        self.current_service = None
+
+    def assign_service(self, service):
+        self.current_service = service
+
+    def calculate_earnings(self):
+        if self.current_service:
+            self.total_earnings += self.current_service.calculate_fee()
+
+class Vehicle:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+
+class Service:
+    def __init__(self, description, base_fee):
+        self.description = description
+        self.base_fee = base_fee
+
+    def calculate_fee(self):
+        return self.base_fee
+
+# Herencia y Polimorfismo: Especialización de Service
+class ShortTrip(Service):
+    def __init__(self, base_fee=10):
+        super().__init__("Short Trip", base_fee)
+
+class LongTrip(Service):
+    def __init__(self, base_fee=20):
+        super().__init__("Long Trip", base_fee)
+
+def main():
+    driver = Driver("John")
+    vehicle = Vehicle("Toyota", "Camry", 2020)
+    short_trip_service = ShortTrip()
+    long_trip_service = LongTrip()
+
+    # Asignar y calcular ganancias para un viaje corto
+    driver.assign_service(short_trip_service)
+    driver.calculate_earnings()
+    print(f"{driver.name}'s total earnings after a short trip: {driver.total_earnings}")
+
+    # Asignar y calcular ganancias para un viaje largo
+    driver.assign_service(long_trip_service)
+    driver.calculate_earnings()
+    print(f"{driver.name}'s total earnings after a long trip: {driver.total_earnings}")
+
+if __name__ == "__main__":
+    main()
