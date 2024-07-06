@@ -32,7 +32,6 @@ class Biblioteca:
                     return f"Libro '{titulo}' no estaba prestado."
         return f"Libro '{titulo}' no encontrado."
 
-# Ejemplo de uso
 biblio = Biblioteca()
 biblio.agregar_libro(Libro("El Quijote"))
 biblio.agregar_libro(Libro("1984"))

@@ -17,7 +17,6 @@ class Vehicle:
 
 
 def assign_service(driver, service):
-    # Assign the service to the driver
     driver.service = service
 
 
