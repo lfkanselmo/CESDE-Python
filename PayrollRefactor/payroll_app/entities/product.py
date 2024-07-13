@@ -85,12 +85,9 @@ class product:
 
         self._products[self._id] = {"Name": self._name, "Price": self._price, "Quantity": self._quantity,"Description": self._description, "Category": self._product_category}
 
-    def show_product(self):
-        for item in product._products.values():
-            print(f"""
-                Name: {item["Name"]}
-                Price: {item["Price"]}
-                Quantity: {item["Quantity"]}
-                Description: {item["Description"]}
-                Category: {item["Category"]["Name"]}
-                """)
+
+    def print_product(self):
+        print( f"""
+            Name: {self._name}
+            Category: {self._product_category["Name"]}
+            """)

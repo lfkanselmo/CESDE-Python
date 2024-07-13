@@ -11,6 +11,9 @@ for item in category.categories.values():
     print(item)
 
 product.create_product()
+product.create_product()
 
 for item in product.products.values():
     print(item)
+
+product.print_product()
