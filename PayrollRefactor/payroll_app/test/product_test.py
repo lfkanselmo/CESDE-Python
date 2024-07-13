@@ -1,5 +1,5 @@
-from payroll_app.entities.Category import category
-from payroll_app.entities.Product import product
+from payroll_app.entities.category import category
+from payroll_app.entities.product import product
 
 category = category(1,"Calzado")
 

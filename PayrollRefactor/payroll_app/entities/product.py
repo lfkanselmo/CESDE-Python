@@ -1,4 +1,4 @@
-from payroll_app.entities.Category import category
+from payroll_app.entities.category import category
 
 
 class product:
@@ -73,6 +73,6 @@ class product:
         self._price = int(input("Insert product price: "))
         self._quantity = int(input("Insert product quantity: "))
         self._description = input("Insert product description: ")
-        self._product_category = 
+        self._product_category = category.search_category()
 
         self.products[self._id] = {"Name": self._name, "Price": self._price}

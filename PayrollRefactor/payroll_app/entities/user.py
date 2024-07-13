@@ -1,6 +1,6 @@
 
 
-class User:
+class user:
     id = None
     name = None
     last_name = None
@@ -70,4 +70,4 @@ class User:
 
 
     def save(self,user_new):
-        User.users.append(user_new)
+        user.users.append(user_new)

@@ -1,6 +1,6 @@
-from payroll_app.entities.Costumer import Costumer
+from payroll_app.entities.costumer import costumer
 
-costumer = Costumer(None,None,None,None,None,None,None)
+costumer = costumer(None, None, None, None, None, None, None)
 
 costumer.create_costumer()
 

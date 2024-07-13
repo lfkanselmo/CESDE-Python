@@ -1,7 +1,7 @@
-from payroll_app.entities.User import User
+from payroll_app.entities.user import user
 
 
-class Costumer(User):
+class costumer(user):
     type = None
     points = None
 

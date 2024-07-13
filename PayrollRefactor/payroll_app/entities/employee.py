@@ -1,7 +1,7 @@
-from payroll_app.entities.User import User
+from payroll_app.entities.user import user
 
 
-class Employee(User):
+class employee(user):
 
     salary = None
     rol = None
