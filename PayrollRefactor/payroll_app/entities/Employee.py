@@ -3,11 +3,6 @@ from payroll_app.entities.User import User
 
 class Employee(User):
 
-    id = None
-    name = None
-    last_name = None
-    email = None
-    password = None
     salary = None
     rol = None
 
