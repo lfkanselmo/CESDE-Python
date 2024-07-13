@@ -1,7 +1,7 @@
 class category:
     id = None
     name_category = None
-    categories = []
+    _categories = {}
 
     def __init__(self, id, name_category):
         self._id = id
@@ -25,25 +25,29 @@ class category:
 
     @property
     def categories(self):
-        return self.categories
+        return self._categories
+
+    @categories.setter
+    def categories(self, categories):
+        self._categories = categories
 
     def create_category(self):
-        self._id = input("Insert ID: ")
+        self._id = input("Insert category ID: ")
         self._name_category = input("Insert category name: ")
         self.categories[self._id] = {"Id": self._id, "Name": self._name_category}
 
     @classmethod
-    def search_category(self):
+    def search_category(cls):
         founded = False
         category_founded = None
 
 
-
         while not(founded):
             cat = input("Insert your category to search: ")
-            for category in self.categories:
-                if category.name_category == cat:
+            for item in category._categories.values():
+                if item["Name"] == cat:
                     founded = True
-                    category_founded = category
+                    print(f"Category {cat} correctly assigned")
+                    return item
             print(f"Category {cat} not found... try again")
         return category_founded

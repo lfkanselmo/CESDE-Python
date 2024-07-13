@@ -8,7 +8,7 @@ class product:
     quantity = None
     description = None
     product_category = None
-    products = []
+    _products = {}
 
     def __init__(self, id, name, price, quantity, description, product_category):
         self._id = id
@@ -67,6 +67,14 @@ class product:
     def product_category(self, product_category):
         self._product_category = product_category
 
+    @property
+    def products(self):
+        return self._products
+
+    @products.setter
+    def products(self, products):
+        self._products = products
+
     def create_product(self):
         self._id = input("Insert product ID: ")
         self._name = input("Insert product name: ")
@@ -75,4 +83,14 @@ class product:
         self._description = input("Insert product description: ")
         self._product_category = category.search_category()
 
-        self.products[self._id] = {"Name": self._name, "Price": self._price}
+        self._products[self._id] = {"Name": self._name, "Price": self._price, "Quantity": self._quantity,"Description": self._description, "Category": self._product_category}
+
+    def show_product(self):
+        for item in product._products.values():
+            print(f"""
+                Name: {item["Name"]}
+                Price: {item["Price"]}
+                Quantity: {item["Quantity"]}
+                Description: {item["Description"]}
+                Category: {item["Category"]["Name"]}
+                """)
