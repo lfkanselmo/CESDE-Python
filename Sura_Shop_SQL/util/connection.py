@@ -1,32 +1,50 @@
 import mysql.connector
+from mysql.connector import Error
 class connection:
-
     _instance = None
-    def __init__(self, host, port, user, password, database):
+
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super(connection, cls).__new__(cls)
+        return cls._instance
+
+    def __init__(self, host, port, database, user, password):
+
         self.host = host
         self.port = port
+        self.database = database
         self.user = user
         self.password = password
-        self.database = database
         self.connection = None
+        self._initialized = True
 
     def connect(self):
-        try:
-            self.connection = mysql.connector.connect(
-                host = self.host,
-                port = self.port,
-                user = self.user,
-                password = self.password,
-                database = self.database
-            )
-            print("Database connection success")
-        except mysql.connector.Error as err:
-            print("Database connection failed")
+        if self.connection is None:
+            try:
+                self.connection = mysql.connector.connect(
+                    host=self.host,
+                    port=self.port,
+                    database=self.database,
+                    user=self.user,
+                    password=self.password
+                )
+                if self.connection.is_connected():
+                    print("database connection success")
+            except Error as e:
+                print(f"connection failed: {e}")
+                self.connection = None
 
-    def disconnect(self):
-        if self.connection:
+
+    def get_connection(self):
+        if self.connection is None or not self.connection.is_connected():
+            self.connect()
+        return self.connection
+
+    def close_connection(self):
+        if self.connection is not None and self.connection.is_connected():
             self.connection.close()
-            print("Database connection closed")
+            print("Connection closed")
+            self.connection = None
 
     def execute_query(self, query, params = None):
         cursor = self.connection.cursor(buffered = True)
@@ -43,8 +61,3 @@ class connection:
         finally:
             cursor.close()
 
-    @staticmethod
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super(connection, cls).__new__(cls)
-            try:

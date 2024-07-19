@@ -28,4 +28,4 @@ class costumer(user):
 
     def costumer_insert(self,db):
         query = f"INSERT INTO costumer (costumer_id, costumer_name, costumer_last_name, costumer_email, costumer_password, costumer_type, points) VALUES({self.id}, {self.name}, {self.last_name}, {self.email}, {self.password}, {self.type}, {self.points})"
-        connection.get_connection()
+        conec = connection.get_connection()
