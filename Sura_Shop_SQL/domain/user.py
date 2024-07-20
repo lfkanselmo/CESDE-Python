@@ -52,3 +52,10 @@ class user:
     @password.setter
     def password(self, password):
         self._password = password
+
+    def create(self):
+        self._id = int(input("Insert ID: "))
+        self._name = input("Insert name: ")
+        self._last_name = input("Insert last name: ")
+        self._email = input("Insert email: ")
+        self._password = input("Insert password: ")

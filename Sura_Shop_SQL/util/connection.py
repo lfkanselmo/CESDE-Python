@@ -18,6 +18,17 @@ class connection:
         self.connection = None
         self._initialized = True
 
+    def __init__(self):
+
+        self.host = 'localhost'
+        self.port = 3306
+        self.database = 'tienda'
+        self.user = 'root'
+        self.password = ''
+        self.connection = None
+        self._initialized = True
+
+
     def connect(self):
         if self.connection is None:
             try:
@@ -55,8 +66,8 @@ class connection:
             if query.lower().startswith("select"):
                 result = cursor.fetchall()
                 return result
-        except mysql.connector.Error as err:
-            print("Query execute failed")
+        except mysql.connector.Error as e:
+            print(f"Query execute failed: {e}")
             return None
         finally:
             cursor.close()

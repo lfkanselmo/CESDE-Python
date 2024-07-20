@@ -27,3 +27,8 @@ class employee(user):
     @rol.setter
     def rol(self,rol):
         self._rol = rol
+
+    def create(self):
+        super().create()
+        self._rol = input("Insert rol: ")
+        self._salary = int(input("Insert salary: "))

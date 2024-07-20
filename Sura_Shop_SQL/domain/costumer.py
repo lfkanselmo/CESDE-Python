@@ -4,6 +4,7 @@ from util.connection import connection
 class costumer(user):
     type = None
     points = None
+    db = connection()
 
     def __init__(self, id, name, last_name, email, password, type, points):
         super().__init__(id, name, last_name, email, password)
@@ -26,6 +27,14 @@ class costumer(user):
     def points(self, points):
         self._points = points
 
+    def create(self):
+        super().create()
+        self._type = input("Insert type: ")
+        self._points = int(input("Insert point: "))
+
     def costumer_insert(self,db):
-        query = f"INSERT INTO costumer (costumer_id, costumer_name, costumer_last_name, costumer_email, costumer_password, costumer_type, points) VALUES({self.id}, {self.name}, {self.last_name}, {self.email}, {self.password}, {self.type}, {self.points})"
-        conec = connection.get_connection()
+        query = f"INSERT INTO costumer (%d, %s, %s, %s, %s, %d, %d)"
+        values = (self.id, self.name, self.last_name, self.email, self.password, self.type, self.points)
+        self.db.connect()
+        self.db.execute_query(query, values)
+        self.db.close_connection()

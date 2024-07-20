@@ -61,5 +61,6 @@ class product_sale:
     def total(self, total):
         self._total = total
 
+
     def calculate_total(self):
         return self.quantity * self.product.price
